@@ -1,0 +1,40 @@
+{
+  "cplx-mfa": {
+    "commit": "184e97c641cd0d1383d28bce102a53b10a527c89",
+    "archive_sha256": "eb0f2f216f1b960bbfdcd2b82b0d5e1009165ef4d864efe7a4b42e58fbb782fd",
+    "files": {
+      ".gitignore": "4ac3fa1646fa600d5ea5e44943d5eef8eaf0b0ea4ecec0612c0130a8eb2f5abb",
+      "__init__.py": "6a9a37b7edcfa35bff7fe95df6dc364c77c0e1802853821d1e81705e2949d859",
+      "LICENSE": "75f656b38f6fe34bf753977d001f028ee995a876d4f40b15206571cfe3194f86",
+      "MFA_cplx.py": "57c36a31ac8bff6486b3b709782fa3730815a6a9c130931eb052a65c28ead242",
+      "MFA_cplx_example.py": "80662ddf08a22d18416cdb836bca774573bac6c46a1e28e9b59d3458bf10c409",
+      "README.md": "100b1f9d085fd45150b6a227f4b4d29256ac4e3a0b9217604c3efe6147e02133",
+      "requirements.txt": "05503d350b8ec7979c0211ab284aed5cdb8f9fe1113bda8b8bba7ed377f4aabc",
+      "utils.py": "41c302812eee44a23867dded994dfa1e5b1cfe10b77256157b48afec19dbee5f"
+    },
+    "tree_sha256": "95276ae9720de142cb0f8d6c259f90ad571174a51f6cce4929a4f16ab283ad5e",
+    "submodules": []
+  },
+  "MFA_estimator": {
+    "commit": "93ce8eec4770840a377581e70de14c1a447a628d",
+    "archive_sha256": "2956e021c8d9a6d4b78bc288cc0fee98cda647cb0af8e9436b232834eba415f5",
+    "files": {
+      ".gitignore": "288d131cdd6a27aaefa8d30beb34a9cc4f929b8b775f3da1f833656d17eccd7e",
+      ".gitmodules": "43eca1f456c1360babdce3b0897571c9771feb52ce4d6ce8a9bb0f1714cdd4b2",
+      "examples.py": "215f889cb8974a266e55020f915d9f55961675e7c477e68a8ca951aab7b60f47",
+      "LICENSE": "75f656b38f6fe34bf753977d001f028ee995a876d4f40b15206571cfe3194f86",
+      "MFA_estimator.py": "5c9fa9b17ddd34c66768b590b587df1edab773a18ae89b4d632c8b3a57b59dbf",
+      "README.md": "45a6f29d75e02106827793d274ad9b8b098a266e1271696c16a5d963dc813171",
+      "requirements.txt": "05503d350b8ec7979c0211ab284aed5cdb8f9fe1113bda8b8bba7ed377f4aabc"
+    },
+    "tree_sha256": "2c5b94d86f0f7328b7b609ba2944d1b1875bfa06cab599f420014624d77175f9",
+    "submodules": [
+      {
+        "path": "MFA_cplx",
+        "mode": "160000",
+        "type": "commit",
+        "sha": "184e97c641cd0d1383d28bce102a53b10a527c89"
+      }
+    ]
+  }
+}

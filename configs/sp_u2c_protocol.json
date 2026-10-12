@@ -1,0 +1,92 @@
+{
+  "task": "SP-U2C",
+  "head": "ca83982b1d0e4bdca0215a3ecbe3a7a8f8f8ec55",
+  "selected_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "selection": "ID only, no performance input",
+  "split": "upgrade-development forever",
+  "repeats": 20,
+  "snr_db": [
+    10,
+    20
+  ],
+  "frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "window": 5,
+  "folds": 4,
+  "rank": 4,
+  "dF": 16,
+  "dT": 4,
+  "nfft": 64,
+  "subcarrier_spacing_hz": 30000,
+  "sample_rate_hz": 1920000,
+  "source_reference_power": 9.941134822523972,
+  "noise_variances": {
+    "10": 0.9941134822523973,
+    "20": 0.09941134822523973
+  },
+  "noise_policy": "same standardized proper complex AWGN atom per trajectory/repeat/frame across 10/20dB, variance scaling only",
+  "noise_rationale": "paired receiver-noise atoms isolate SNR scaling; independent draws across repeats and frames; overlapping windows reuse their physical frame noise",
+  "seed_rule": "3600000000 + 10000*trajectory_id + 100*repeat_id + frame_id; receiver AWGN role only; no SNR offset because atoms paired; distinct from U2B channel/bit/noise namespace; no search",
+  "hypotheses_verbatim": "## H1 — Negative penalty persistence\n\n如果 SP-U2B 的负 ΔR_noise\n不仅是 single-noise accident，\n\n则对于一部分固定 trajectory/window，\n\n20个独立 noise repeats 的：\n\n\\[\nE_r[\\Delta R_{\\rm noise}]\n\\]\n\n应稳定为负。\n\n### Supporting\n\ntrajectory/window conditional mean\n在相当一部分 cases 下负，\n\n且 negative fraction\n明显高于随机近50%的纯符号波动模式。\n\n### Contradicting\n\nconditional means 大多接近0，\n\nSP-U2B 高 negative count\n主要由单 draw 造成。\n\n---\n\n## H2 — Oracle-directed movement\n\n如果 negative penalty 来自\nnoise-CV movement\n朝 oracle 方向移动，\n\n则：\n\n\\[\nC_r\n\\]\n\n应经常为负，\n\n且 negative-penalty repeats\n应具有更负的：\n\n\\[\n\\cos_M.\n\\]\n\n### Supporting\n\nconditional mean cross term 为负，\n\n且能够解释 Q 被抵消。\n\n### Contradicting\n\ncross-term signs 随机，\nnegative penalty 无稳定 geometry。\n\n---\n\n## H3 — Excitation predicts conditional noise variance\n\n对于固定 clean window，\n\n定义：\n\n\\[\nV_c\n=\nE_r\n\\|\nc_r-c_0\n\\|^2.\n\\]\n\n或 empirical repeat RMS：\n\n\\[\nRMS_c\n=\n\\sqrt{\n\\frac1{20}\n\\sum_r\n\\|c_r-c_0\\|^2\n}.\n\\]\n\n如果 SP-U2B 的 excitation sensitivity\n不是 single-draw artifact，\n\n则：\n\n\\[\n\\sigma_{\\min}(G_0)\n\\downarrow\n\\]\n\n应对应：\n\n\\[\nRMS_c\n\\uparrow.\n\\]\n\n这是本轮比 single-noise norm\n更重要的 stability diagnostic。\n\n---\n\n## H4 — Condition number remains secondary\n\n预期：\n\nclean absolute excitation\n\n比：\n\nclean \\(\\kappa_G\\)\n\n更稳定地解释 repeat RMS coordinate displacement。\n\n如果结果相反，\n\n必须修改 SP-U2B interpretation。\n\n---\n\n## H5 — Surrogate gap remains non-negligible\n\n即便对 noise repeats 平均，\n\nclean-CV 到 per-repeat channel oracle 的\nM-metric risk gap\n\n仍可能大于\nnoise-coordinate contribution。\n\n如果成立：\n\n不得把 Paper 1 主要 limitation\n归结为 coefficient noise sensitivity。\n\n---",
+  "numerical_cosine_rule": "Es=s^T M s, En=n^T M n; undefined if Es<=64*eps*max(1,||M||2*||s||2^2) or En<=64*eps*max(1,||M||2*||n||2^2); save null, thresholds and undefined counts; never drop records or clip cosine",
+  "identity_tolerance": 2e-10,
+  "borderline_rule": "abs(deltaR)<=2e-10*max(1,abs(Q)+abs(C),R,R0); preserve exact computed signs plus borderline flag",
+  "representative_rule": "within each SNR, choose negative and positive conditional-mean windows closest to population median; ties trajectory ID then frame ID; no scientific subject selection",
+  "analysis": "120 conditional windows/SNR; primary cross-channel association Spearman of six-window trajectory means (n=20); repeat RMS, Vc, empirical covariance; no p-values, bootstrap or formal CI",
+  "persistence_descriptors": "report negative fractions >0.5, >=0.75 and =1; these are descriptive counts, not significance thresholds; first10/last10 mean signs reported prospectively",
+  "decision_rule": "user A/B/C qualitative rules; no invented scientific cutoff; systematic conditional effect requires coherent repeat persistence and negative oracle-cross explanation; otherwise mixed or mostly single-draw; no universal conclusion",
+  "plots": "at most six A-F; C includes all 240 fixed windows x 20 repeats for Q,C,delta heatmaps plus conditional mean Q-vs-C",
+  "replay_pairs": [
+    [
+      0,
+      0
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      19,
+      19
+    ]
+  ],
+  "prohibitions": [
+    "T20B read",
+    "U2B performance-based design",
+    "new channel",
+    "method change",
+    "more repeats",
+    "baseline",
+    "OOD",
+    "paper edit",
+    "Git commit",
+    "next task"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "copied_bytes_unchanged": true,
+  "files": {
+    "src/baselines/mfa_reference_adapter.py": "f92729e5f4b623775a1ffdd4013fe7f85d8ca86913d05383fe4274fb4c38b0cc",
+    "reference/sp_u12b5a/paper_period/cplx-mfa/MFA_cplx.py": "57c36a31ac8bff6486b3b709782fa3730815a6a9c130931eb052a65c28ead242",
+    "reference/sp_u12b5a/paper_period/cplx-mfa/utils.py": "41c302812eee44a23867dded994dfa1e5b1cfe10b77256157b48afec19dbee5f",
+    "reference/sp_u12b5a/paper_period/MFA_estimator/MFA_estimator.py": "5c9fa9b17ddd34c66768b590b587df1edab773a18ae89b4d632c8b3a57b59dbf",
+    "outputs/sp_u12b5a/historical_reference.json": "33e8eacd74fe563cff1acba8662293a81618953c178ead9d69a13c06116a8214"
+  },
+  "reference_only_no_scientific_data": true
+}

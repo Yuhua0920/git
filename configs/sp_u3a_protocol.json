@@ -1,0 +1,110 @@
+{
+  "task": "SP-U3A",
+  "training_object": "C-order full4096 [rx,tx,k,t]",
+  "source_names": [
+    "Source/CDL-C-30",
+    "CDL-B-30",
+    "CDL-C-120"
+  ],
+  "allowed_variants": [
+    "MFA-Source",
+    "MFA-Prepared"
+  ],
+  "forbidden": [
+    "B120 clean training",
+    "C75 clean training",
+    "heldout delay",
+    "formal CSI",
+    "future upgrade validation"
+  ],
+  "tuning_split": "within each allowed500trajectory environment:fit IDs0..399;validation400..499;split before frame extraction;all10frames grouped",
+  "final_refit": "after selection,refit all500/environment; three independent init seeds, no target access",
+  "K": [
+    1,
+    2,
+    4
+  ],
+  "latent_rank": [
+    4,
+    8,
+    16
+  ],
+  "ppca": false,
+  "lock_psis": false,
+  "zero_mean": false,
+  "rs_clip": 0.0,
+  "max_condition_number": 1000000.0,
+  "max_iter": 200,
+  "tol": 0.0001,
+  "seeds": [
+    202603101,
+    202603102,
+    202603103
+  ],
+  "initialization": "author KMeans real-imag n_init1 +author random complexW; no environment-stratified component seeding",
+  "selection_metric": "mean clean held-out negative log likelihood per4096complex dimension;trajectory mean then equal environment mean;average3initializations",
+  "tie_break": "score within1e-8:lower K thenlower rank; no target performance tie-break",
+  "no_config_substitution_on_failure": true,
+  "failures": "report each seed/config failure; convergence warning after200=>ineligible;no target-assisted debugging",
+  "future_run_caps": {
+    "estimated_peak_GiB": 8,
+    "max_seconds_per_fit": 3600,
+    "action": "stop and report resource gate;do not change dimensionality or expand search"
+  },
+  "estimate_summands": 1.0,
+  "upstream_source_unmodified": true,
+  "native_dense_implementation": true,
+  "alternative_isotropic": "dissertation matched ppca=True is separately named future authorization option, not selected this round",
+  "future_metrics": {
+    "primary": "data-domain NMSE,same3968mask andtrajectory aggregation",
+    "secondary": "BER withsamefrozenZF detector;arithmetic/storage",
+    "compared_score_frames": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "snrs": [
+      10,
+      20
+    ],
+    "sigma2": {
+      "5": 3.1436628565989504,
+      "10": 0.9941134822523973,
+      "20": 0.09941134822523973
+    }
+  },
+  "toy": {
+    "seed": 202603201,
+    "N": 8,
+    "M": 3,
+    "K": 2,
+    "rank": 2,
+    "train_samples": 256,
+    "max_iter": 30,
+    "tolerance": 1e-10
+  },
+  "smoke": {
+    "source_train_ids": [
+      0,
+      1
+    ],
+    "frames": [
+      0,
+      4,
+      9
+    ],
+    "K": 1,
+    "rank": 2,
+    "max_iter": 1,
+    "observations": 2,
+    "seed": 202603301,
+    "max_seconds": 300,
+    "scope": "structural gate only;expected nonconvergence warning;not scientific trained baseline"
+  },
+  "theory": "FREEZE",
+  "next_task_automatic": false,
+  "dependencies_installed": false
+}

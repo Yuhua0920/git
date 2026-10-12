@@ -1,0 +1,64 @@
+{
+  "run_id": "SP_U12B3B_SEALED_ABLATION_V1",
+  "conditions": [
+    "ID",
+    "Profile",
+    "Mobility",
+    "Composed",
+    "Boundary"
+  ],
+  "snrs": [
+    10,
+    20
+  ],
+  "arms": [
+    "P-only",
+    "M-only",
+    "Both"
+  ],
+  "deployments": [
+    "Dense",
+    "LR4"
+  ],
+  "trajectory_count_per_condition": 1000,
+  "frames": 10,
+  "scored_frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "rank": 4,
+  "folds": 4,
+  "window": 5,
+  "worker_count": 2,
+  "BLAS_threads": 1,
+  "expected_reused_H": 5000,
+  "expected_units": 10000,
+  "expected_trajectory_rows": 60000,
+  "expected_frame_rows": 360000,
+  "expected_primary_rows": 12,
+  "expected_descriptive_rows": 60,
+  "primary_replicates": 10000,
+  "descriptive_replicates": 10000,
+  "primary_q": 0.0020833333333333333,
+  "descriptive_quantiles": [
+    0.025,
+    0.975
+  ],
+  "quantile_method": "linear",
+  "primary_conditions": [
+    "Profile",
+    "Mobility",
+    "Composed"
+  ],
+  "Both_replay_tolerance": 0.0,
+  "normal_residual_tolerance": 1e-11,
+  "operator_sha256": "6df61f6b547c4f1f553212a90c197eb78d838786af3498548d3062e733668134",
+  "bootstrap_registry_sha256": "57f655de0c99efcbe54ca41fdbdc1455d859c08ba2dbc38b8e9c86f74016d862",
+  "new_channel_generation": false,
+  "BER_analysis": false,
+  "scientific_outcomes_viewed": false
+}

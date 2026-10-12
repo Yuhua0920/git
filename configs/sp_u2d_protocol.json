@@ -1,0 +1,120 @@
+{
+  "task": "SP-U2D",
+  "head": "ca83982b1d0e4bdca0215a3ecbe3a7a8f8f8ec55",
+  "selected_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "repeats": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "snrs": [
+    10,
+    20
+  ],
+  "score_frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "ages": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "age_definition": "age a removes frame j-a; all variants use4 frames",
+  "production_window": 5,
+  "counterfactual_window": 4,
+  "fitting_fold_count": 4,
+  "rank": 4,
+  "dF": 16,
+  "dT": 4,
+  "nfft": 64,
+  "subcarrier_spacing_hz": 30000,
+  "sample_rate_hz": 1920000,
+  "ndata": 3968,
+  "split": "upgrade-development forever",
+  "hypotheses_verbatim": "## H1 — Current frame has larger coordinate influence\n\nBecause current frame contains the most recent realization-specific pilot information,\n\n预计：\n\n\\[\n\\|\\delta_0\\|\n\\]\n\n大于典型历史：\n\n\\[\n\\|\\delta_{1:4}\\|.\n\\]\n\n### Supporting\n\nage0 conditional mean / median\n稳定大于 past-age distribution。\n\n### Contradicting\n\nage0 与其它年龄无区别，\n或不是最大的。\n\n---\n\n## H2 — Current frame is more oracle-aligned\n\n如果 SP-U2C 的 phenomenon 主要来自 current-state adaptation，\n\n则 age0：\n\n\\[\nC_0\n\\]\n\n和：\n\n\\[\n\\cos_{M,0}\n\\]\n\n应比 past ages 更负。\n\n### Supporting\n\ncurrent-frame inclusion\n具有更强 negative alignment。\n\n### Contradicting\n\n所有 frame ages 相似，\n或者 historical frames 更负。\n\n---\n\n## H3 — Current frame provides stronger risk reduction\n\n预计：\n\n\\[\n\\Delta R_0\n\\]\n\n比：\n\n\\[\n\\Delta R_1,\\ldots,\\Delta R_4\n\\]\n\n更负。\n\n特别比较：\n\n\\[\n\\Delta R_0\n-\n\\frac14\\sum_{a=1}^4\\Delta R_a.\n\\]\n\n### Supporting\n\n该 paired contrast\n在两个 SNR 下具有稳定负方向。\n\n### Contradicting\n\ncurrent frame 不比历史 frames 特殊。\n\n---\n\n## H4 — Recency gradient\n\n探索但预注册：\n\n如果 temporal relevance\n随着 frame age 增大而降低，\n\n可能看到：\n\nage0\n→ age1\n→ ...\n→ age4\n\n的：\n\ninfluence / alignment / risk contribution\n逐渐减弱。\n\n### 注意\n\n这不是必须支持的 hypothesis。\n\n当前 channel temporal correlation\n可能不是简单单调结构。\n\n若无单调性：\n\n不得强造 recency law。\n\n---\n\n## H5 — Full-fit advantage is not only sample count\n\n因为所有 LOFO variants\n都严格使用4帧，\n\n如果 current frame 的效果\n明显区别于其它4-frame variants，\n\n则不能简单归因：\n\n“只是少一个 frame”。\n\n如果所有 ages 都类似，\n\n则 sample-count / averaging\n解释更合理。\n\n---",
+  "method": "original five-frame production unchanged; Hminus=Hfull-Hage,bminus=bfull-bage; real np.linalg.solve only; no pseudoinverse/ridge/clipping/fallback",
+  "moment_order": "production oldest-to-current chronological complex accumulation preserved; age labels current0 tooldest4; age reconstruction checked at2e-10",
+  "identities_tolerance": 2e-10,
+  "cosine_safety": "same SP-U2C64eps energy rule; preserve undefined and singular records",
+  "primary_contrasts": [
+    "D_coord=norm(delta0)-mean(norm(delta1..4))",
+    "D_C=C0-mean(C1..4)",
+    "D_R=deltaR0-mean(deltaR1..4)"
+  ],
+  "statistics": "compute within-record paired contrasts then trajectory means;20 independent channel clusters perSNR; mean/median/IQR/sign consistency; no p-values or bootstrap",
+  "energy_rule": "centered frame pilot energy=sum(abs(pilot-source_mean_p)^2)/64; primary similar-clean subset requires max/min acrossall5frames<=1.10, frozen beforeLOFO; same10percent noisy-energy descriptor secondary; empty subset reported without relaxing threshold",
+  "energy_stratification": "withinSNR120fixed windows ranked by clean current-energy/mean-past-energy; three equalcount terciles40windows each; ties ID thenframe; all20noise repeats retained",
+  "age_profile": "normalize each trajectory/SNR/metric5age means by mean absolute fiveage value; preserve sign and nonmonotonicity; median/IQR across20trajectories",
+  "decision_rules": "User A/B/C qualitative gate; A requires all three layers stronger versus eachpastage andstable atbothSNR/mosttrajectories; B currentnot special ->stop; C partial/recency ->defaultfreeze; no tuned threshold",
+  "replay_pairs": [
+    [
+      0,
+      0
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      19,
+      19
+    ]
+  ],
+  "max_figures": 5,
+  "prohibitions": [
+    "new channel/noise",
+    "subject/repeat selection",
+    "T20B read",
+    "retest U2B/U2C claims",
+    "change production",
+    "new theory task",
+    "baseline/OOD/offline study",
+    "paper edit",
+    "Git commit"
+  ]
+}

@@ -1,0 +1,22 @@
+system:
+  nt: 2
+  nr: 2
+  nfft: 64
+  active_carriers: 64
+  num_symbols: 16
+  delta_f_hz: 30000
+  sample_rate_hz: 1920000
+  cp_len: 16
+  fft_norm: ortho
+  modulation: qpsk_gray
+  total_power: 1.0
+
+noise:
+  snr_db: [0, 5, 10, 15, 20]
+
+pilot:
+  spacing_time: 4
+  spacing_frequency_options: [2, 4, 8, 16]
+
+seed:
+  base_seed: 20260930

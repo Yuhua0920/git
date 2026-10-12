@@ -1,0 +1,3 @@
+# Optional B0 ML dependency; install only in the project .venv.
+# Choose an official CUDA/CPU wheel index appropriate to the environment.
+torch==2.11.0

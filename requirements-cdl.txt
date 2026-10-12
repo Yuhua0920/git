@@ -1,0 +1,10 @@
+# Isolated T15A environment only; do not install into the main .venv.
+# Install torch from the official cu128 index before this file.
+torch==2.11.0+cu128
+sionna-no-rt==2.2.0
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2
+PyYAML==6.0.3
+pytest==9.1.1
+PyMuPDF==1.28.2

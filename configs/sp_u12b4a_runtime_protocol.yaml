@@ -1,0 +1,317 @@
+task: SP-U12B4A
+formal_authorized: false
+scope: DESIGN_FAIR_IMPLEMENTATION_TECHNICAL_PREFLIGHT_ONLY
+methods:
+- Source
+- Dense
+- LR4
+endpoints:
+- estimator_core
+- correction_only
+endpoint_methods:
+  estimator_core:
+  - Source
+  - Dense
+  - LR4
+  correction_only:
+  - Dense
+  - LR4
+snr_db:
+- 10
+- 20
+noise_variances:
+  10: 0.9941134822523973
+  20: 0.09941134822523973
+input_stream_source: C:\Users\yuhua\Desktop\Project\outputs\sp_u12b4a\benchmark_safe\pilot_streams.npz
+input_stream_sha256: 0e6fe99864a90975a3852cac02796ecc394ed6ae511688dd1f15d3a255edce48
+input_seed: 4290123401
+formal_scientific_inputs_used: false
+stream_length: 68
+pilot_dimension: 64
+data_dimension: 3968
+warmup_frames_per_pass: 4
+outputs_per_measured_pass: 64
+window: 5
+folds: 4
+rank: 4
+warmup_passes: 5
+calibration_pilot_passes: 16
+calibration_target_seconds: 0.5
+calibration_planning_seconds: 1.0
+calibration_safety_factor: 1.25
+common_measured_passes: 832
+calibration_policy: Once:minimum timed-ns-per-pass across all declared method/SNR/endpoints;ceil(planning_ns*1.25/min),round
+  up to16;validate all blocks>=0.5s;failure stops,never retunes
+process_blocks: 12
+processes_concurrent: 1
+benchmark_order_seed: 4290123402
+method_orders:
+  estimator_core_10:
+  - - Dense
+    - Source
+    - LR4
+  - - Dense
+    - LR4
+    - Source
+  - - Dense
+    - Source
+    - LR4
+  - - Source
+    - Dense
+    - LR4
+  - - LR4
+    - Source
+    - Dense
+  - - LR4
+    - Dense
+    - Source
+  - - LR4
+    - Source
+    - Dense
+  - - Dense
+    - LR4
+    - Source
+  - - Source
+    - LR4
+    - Dense
+  - - LR4
+    - Dense
+    - Source
+  - - Source
+    - Dense
+    - LR4
+  - - Source
+    - LR4
+    - Dense
+  estimator_core_20:
+  - - Dense
+    - Source
+    - LR4
+  - - Dense
+    - LR4
+    - Source
+  - - Dense
+    - Source
+    - LR4
+  - - Source
+    - Dense
+    - LR4
+  - - LR4
+    - Source
+    - Dense
+  - - LR4
+    - Dense
+    - Source
+  - - LR4
+    - Source
+    - Dense
+  - - Dense
+    - LR4
+    - Source
+  - - Source
+    - LR4
+    - Dense
+  - - LR4
+    - Dense
+    - Source
+  - - Source
+    - Dense
+    - LR4
+  - - Source
+    - LR4
+    - Dense
+  correction_only_10:
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - Dense
+    - LR4
+  - - Dense
+    - LR4
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - LR4
+    - Dense
+  - - LR4
+    - Dense
+  correction_only_20:
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - Dense
+    - LR4
+  - - Dense
+    - LR4
+  - - Dense
+    - LR4
+  - - LR4
+    - Dense
+  - - LR4
+    - Dense
+  - - LR4
+    - Dense
+stratum_orders:
+- - &id004
+    - correction_only
+    - 10
+  - &id001
+    - estimator_core
+    - 10
+  - &id002
+    - estimator_core
+    - 20
+  - &id003
+    - correction_only
+    - 20
+- - *id001
+  - *id002
+  - *id003
+  - *id004
+- - *id002
+  - *id003
+  - *id004
+  - *id001
+- - *id003
+  - *id004
+  - *id001
+  - *id002
+- - *id004
+  - *id001
+  - *id002
+  - *id003
+- - *id001
+  - *id002
+  - *id003
+  - *id004
+- - *id002
+  - *id003
+  - *id004
+  - *id001
+- - *id003
+  - *id004
+  - *id001
+  - *id002
+- - *id004
+  - *id001
+  - *id002
+  - *id003
+- - *id001
+  - *id002
+  - *id003
+  - *id004
+- - *id002
+  - *id003
+  - *id004
+  - *id001
+- - *id003
+  - *id004
+  - *id001
+  - *id002
+BLAS_threads: 1
+thread_environment:
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  NUMEXPR_NUM_THREADS: '1'
+  GOTO_NUM_THREADS: '1'
+  BLIS_NUM_THREADS: '1'
+dtype_operators: complex128
+dtype_pilots: complex128
+dtype_coordinates: float64
+dtype_normal_equations: float64
+timer: time.perf_counter_ns
+timer_inside: one Estimator.step(p) or correction(u,c);input lookup and result/timing
+  storage outside
+pass_state: reset and ingest first four frames outside measured frames;measure j>=4;no
+  carried buffer across passes
+warmup_policy: 5 complete stream passes per method/SNR/endpoint;resident operators;no
+  cache flush
+allocation_policy: same NumPy expressions and common persistent buffer/normal arrays;no
+  fused base+correction or asymmetric preallocation
+garbage_collection: Python default enabled in all paths
+runtime_environment: single fresh child per process-block/SNR/endpoint;all compared
+  objects resident;no parallelism
+memory_measurement: Win32 GetProcessMemoryInfo(GetCurrentProcess);fresh method-exclusive
+  child;current RSS baseline and loaded RSS;2ms current-RSS sampling in separate untimed
+  memory runs;also record lifetime peak separately
+memory_process_blocks: 12
+memory_sample_interval_seconds: 0.002
+memory_run_passes: same common_measured_passes
+memory_baseline: after imports and benchmark input ready,GC;before any method operators
+  loaded
+memory_loaded: only required method/SNR arrays loaded;GC;before warmup
+memory_scope: numeric .nbytes independent of Python/system RSS;aliases counted once;RSS
+  includes interpreter/input/allocator
+runtime_bootstrap_seed: 4290123403
+runtime_bootstrap_replicates: 10000
+runtime_statistics: DESCRIPTIVE_SYSTEM_BENCHMARK
+latency_summary: median of12 process-block per-frame medians;IQR and5th/95th of block
+  medians;also within-block per-frame median/IQR/5th/95th
+latency_uncertainty: 10000 resamples of12 process-block medians;95% percentile CI
+ratio: Dense block median / LR4 block median;median paired block ratios and paired12-block
+  bootstrap;no speed threshold
+throughput: 1e9 / median-of-block-median ns;frames/s;reciprocal descriptor,not independently
+  timed
+quantiles: linear;0.025/0.975 CI;0.25/0.75 IQR;0.05/0.95 spread
+no_hypothesis_test: true
+no_pvalue: true
+no_Bonferroni: true
+no_channel_generalization_inference: true
+no_speed_success_threshold: true
+no_offline_preparation_or_I_O_timed: true
+technical_invalidation:
+- process interruption/crash
+- detected OS suspend/resume above100ms detection tolerance above100ms detection tolerance
+  above100ms detection tolerance above100ms detection tolerance
+- non-monotonic/invalid timer
+- frozen environment/threads/power plan changed
+- hash/output-correctness failure
+never_invalidate_for:
+- large latency
+- background CPU spike alone
+- thermal/frequency change alone
+load_diagnostics: record processor time/frequency/background context where available;unavailable
+  flagged;no outlier deletion
+invalidation_action: mark whole process block invalid;retain bytes;STOP formal attempt;no
+  auto replacement/retry/filtering
+sleep_detection: Win32 QueryInterruptTimePrecise(includes suspend) minus QueryUnbiasedInterruptTimePrecise(excludes
+  suspend);100ms counter/read scheduling tolerance;brief suspend below detection resolution
+  cannot be excluded
+output_root: C:\Users\yuhua\Desktop\Project\outputs\sp_u12b4b_runtime
+exact_formal_command:
+- C:\Users\yuhua\Desktop\Project\.venv-cdl\Scripts\python.exe
+- -X
+- utf8
+- scripts/run_sp_u12b4_benchmark.py
+- --formal
+operator_path: C:\Users\yuhua\Desktop\Project\outputs\sp_u12b2a\operators.npz
+operator_sha256: 6df61f6b547c4f1f553212a90c197eb78d838786af3498548d3062e733668134
+production_relative_tolerance: 1.0e-10
+production_tolerance_source: existing B2A fixed complex1281e-10 equivalence gate;not
+  selected from timings
+B2_manifest_sha256: 54e5346a943e35b66e4a4f51a267b4db765430da1f27c6f0bc1bdbc95d1aa67e
+B3_manifest_sha256: 12f9406a7b9d88b7a8437d04c082eb68aa4a79b5b4880b6108acd1be6f200c65
+task_path: C:\Users\yuhua\.codex\attachments\69ab70dc-d563-4964-a418-0cb370c190a3\已粘贴的文本.txt
+task_sha256: bb49436fa56b899a79571422dd97a582952df7d0f18f6cc2207341688557e73a
+stratum_order_seed: 4290123457
+calibration_status: PASS_ONCE_NO_FURTHER_OPTIMIZATION

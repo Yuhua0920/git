@@ -1,0 +1,31 @@
+{
+  "task": "SP-U2B",
+  "question": "Can frozen clean cross-pilot geometry and joint pilot perturbations explain coordinate changes and channel penalties on new upgrade-development CDL data?",
+  "condition": {"profile": "B", "speed_kmh": 120, "nominal_DS_seconds": 1e-7, "nt": 2, "nr": 2, "nfft": 64, "num_symbols": 16, "sample_rate_hz": 1920000, "subcarrier_spacing_hz": 30000, "dF": 16, "dT": 4},
+  "snr_db": [10, 20],
+  "source_reference_power": 9.941134822523972,
+  "noise_variances": {"10": 0.9941134822523973, "20": 0.09941134822523973},
+  "snr_definition": "ensemble expected useful received signal power per RX branch / complex AWGN variance; frozen SOURCE reference; no normalization or recalibration",
+  "sample_ladder": {"smoke": 20, "development": 100, "disjoint_stages": true, "frames_per_trajectory": 10, "scored_frames": [4,5,6,7,8,9]},
+  "seed_rule": "SP_U2B_UPGRADE_DEV_v1: base=3500000000+stage_index*1000000+trajectory_id*1000; channel roles offsets 1,2,3; frame bit/noise roles offsets 100+3*frame+[0,1,2]; shared standard noise across SNRs; no seed search",
+  "hypotheses": {
+    "H1": {"statement": "Weaker clean excitation associates with larger noise-induced coordinate perturbation when other factors are comparable", "support": "stable negative monotonic associations for clean sigma_min/lambda_min/absolute excitation across trajectories and SNRs", "contradict": "no stable association or other factors dominate", "alternative": "column coherence, SNR, realization gain and temporal variation can confound excitation"},
+    "H2": {"statement": "Clean geometry plus design/joint perturbation is more informative than noisy condition number alone", "support": "relative design perturbation or joint-bound proxy adds stable descriptive information beyond noisy kappa", "contradict": "joint quantities add no information", "alternative": "joint bound contains residual and clean fitted coefficient magnitude; association is not causal validation"},
+    "H3": {"statement": "Noise can improve observed conditioning while coordinates change substantially", "support": "conditioning improvement co-occurs with nontrivial coordinate/output changes at a reported population rate", "contradict": "the phenomenon is absent or rare; no universal worsening assumption", "alternative": "noise injects excitation without channel information; count does not establish harmful channel penalty"},
+    "H4": {"statement": "Coordinate changes propagate exactly through rank-4 output directions and generally relate to channel penalty", "support": "quadratic identity agrees and coordinate/output magnitude has stable relation to channel penalty", "contradict": "large coordinate changes have weak output effects or no stable channel-penalty association", "alternative": "output anisotropy and signed cross term can decouple magnitude from excess MSE"},
+    "H5": {"statement": "Clean-CV to channel-oracle surrogate gap can remain important even when noisy-to-clean coordinate change is small", "support": "surrogate coordinate/output gap remains material relative to noise-induced change", "contradict": "surrogate gap is negligible throughout", "alternative": "per-realization noisy-input oracle also reflects output geometry and observation noise, not solely population surrogate mismatch"}
+  },
+  "analysis": {
+    "independent_unit": "trajectory",
+    "primary_association": "Spearman across trajectory means within each SNR; no p-values or independence claim for windows",
+    "secondary_association": "window scatter Spearman and within-trajectory demeaned rank association, descriptive only",
+    "quartiles": "equal-count rank quartiles of predictor; report all four outcome medians on trajectory means, within SNR",
+    "bins": "eight equal-count predictor bins for window scatter medians within SNR",
+    "large_change_convention": "within-SNR upper quartile of window noise-coordinate norms; descriptive rank convention, not a scientific cutoff",
+    "near_zero_change": "64*float64_eps*max(1,norm(clean_coordinate),norm(noisy_coordinate)); report count and bounds separately, do not silently discard",
+    "near_singular": "sigma_min <= 64*float64_eps*sigma_max; descriptive numerical flag only; no fallback",
+    "identity_tolerance": 2e-10,
+    "decision": "Supported requires coherent stable trajectory/SNR chain. Partial preserves only supported links. Not supported stops expansion. No numerical significance threshold, no regression/CI/bootstrap in this round."
+  },
+  "prohibitions": ["T20B outcome access", "pilot-density or row-budget sweep", "new baseline", "OOD", "method change", "operator refit", "rank change", "paper edit", "Git commit", "automatic next task"]
+}

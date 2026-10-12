@@ -1,0 +1,338 @@
+search_date: '2026-10-03'
+search_scope: 'Focused closest-work audit, not an exhaustive literature census'
+queries:
+  - 'Mei LMMSE CCF candidate selection IET Communications 2021'
+  - 'Gui affine combination sparse LMS filters large-scale MIMO 2015'
+  - 'Ozdemir adaptive low-rank LMMSE MIMO-OFDM official author PDF'
+  - 'Ha Attention-Aided MMSE rank-adaptive 2025 2026'
+  - 'Weisser Utschick parametric Bayesian LMMSE channel estimation'
+  - 'Lee Choi Two-Tier PEFT Adapter Switching 2026'
+  - '2024 2025 2026 adaptive LMMSE covariance mismatch pilot-driven selection continuous filter composition'
+  - 'low-rank multi-environment channel estimation LoRAT'
+fields:
+  - Reference
+  - Year
+  - System
+  - Problem
+  - Base estimator
+  - Adaptation object
+  - Discrete selection or continuous adaptation
+  - Online information
+  - Target clean CSI required online?
+  - Pilot-only adaptation?
+  - Environment label required?
+  - Low-rank object
+  - Coefficient learning method
+  - Neural training required?
+  - Offline target-domain information
+  - OOD evaluation
+  - Complexity
+  - Closest overlap
+  - Concrete difference
+  - Collision severity
+papers:
+  - id: A
+    source: https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cmu2.12250
+    evidence: 'Publisher-indexed original Sections3–5/Algorithm1 inspected via search; direct page open failed. Unread details UNKNOWN.'
+    full_text: partial_original_sections
+    values:
+      - 'Mei et al., LMMSE channel estimation for OFDM systems with channel correlation function selection; DOI10.1049/cmu2.12250'
+      - '2021'
+      - 'OFDM, block pilots'
+      - 'CCF mismatch'
+      - 'Candidate-CCF LMMSE'
+      - 'Candidate statistics'
+      - 'Discrete argmin'
+      - 'Noisy rough estimates and parameter bank'
+      - 'No in Algorithm1'
+      - 'Pilot estimates in block application'
+      - 'No in Algorithm1'
+      - 'UNKNOWN'
+      - 'Sampled interpolation-error comparison'
+      - 'No in Algorithm1'
+      - 'Candidate CCF prior'
+      - 'Four statistics scenarios'
+      - 'Grouped comparison simplification'
+      - 'Withheld-pilot estimator comparison'
+      - 'Current two real unrestricted coordinates, sparse FDM folds'
+      - 'HIGH; continuity alone is incremental'
+  - id: B
+    source: https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-com.2014.0979
+    additional_source: https://arxiv.org/pdf/1407.6083
+    evidence: 'Publisher-indexed Sections2/3/5 and author preprint SectionsII–IV read; 2014 preprint is not asserted identical to journal version. Equation-image constraints UNKNOWN.'
+    full_text: original_sections_and_author_preprint
+    values:
+      - 'Gui et al., Affine combination of two adaptive sparse filters for estimating large-scale MIMO channels; DOI10.1049/iet-com.2014.0979'
+      - '2015 journal;2014 preprint'
+      - 'Large-scale multiuser MIMO'
+      - 'Sparsity/convergence trade-off'
+      - 'Two sparse LMS filters'
+      - 'Differential filter and combiner'
+      - 'Continuous affine'
+      - 'Inputs, outputs, estimation error'
+      - 'UNKNOWN'
+      - 'Orthogonal training assumed; density UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'Stochastic-gradient combiner'
+      - 'No neural model in inspected method'
+      - 'UNKNOWN'
+      - 'Sparsity/step-size tests'
+      - 'Sparse adaptive filtering'
+      - 'Base plus weighted differential filter'
+      - 'Current frozen covariance operators; analytical cross-pilot LS'
+      - 'HIGH; affine combination established'
+  - id: C
+    source: https://mebis.medipol.edu.tr/EgitimKadrosu?pBirimOID=10223
+    additional_source: https://doi.org/10.1109/TWC.2006.04713
+    evidence: 'Official publication metadata only; IEEE text unavailable. Author-list discrepancy across catalogs unresolved; no technical details inferred from title.'
+    full_text: unavailable
+    values:
+      - 'Özdemir et al., Toward real-time adaptive low-rank LMMSE channel estimation of MIMO-OFDM systems; DOI10.1109/TWC.2006.04713'
+      - '2006'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'Topic overlaps adaptive low-rank estimation; technical overlap UNKNOWN'
+      - 'UNKNOWN pending full text'
+      - 'HIGH / UNRESOLVED'
+  - id: D
+    source: https://arxiv.org/html/2506.00452v5
+    evidence: 'Author v5 dated2026-07-19, SectionsIV–VI and Eq29–32 read. Current v5 title differs from earlier Attention-Aided MMSE title; publication status UNKNOWN.'
+    full_text: author_manuscript
+    values:
+      - 'Ha et al., Learning MMSE Filters for OFDM Channel Estimation: Attention Transformer Gains at Linear Inference; A-MMSE/RA-A-MMSE; arXiv2506.00452v5'
+      - '2025 first preprint;2026 v5'
+      - 'OFDM, COST2100'
+      - 'Accuracy/inference cost'
+      - 'Learned linear MMSE filter'
+      - 'Full filter and rank projection'
+      - 'Deployment rank adjustment'
+      - 'Noisy pilots, rank configuration'
+      - 'No in inference equations'
+      - 'Pilot-input inference; online fitting UNKNOWN'
+      - 'UNKNOWN'
+      - 'Full learned filter'
+      - 'Offline attention and RA training'
+      - 'Yes'
+      - 'Channel training pairs'
+      - 'Semi-urban/HSR scenarios'
+      - 'Factored full-filter arithmetic'
+      - 'Factored linear inference'
+      - 'Current correction-only factors and analytical online coordinates'
+      - 'HIGH for generic low-rank claim'
+  - id: E
+    source: https://arxiv.org/html/2504.16710v3
+    additional_source: https://ieeexplore.ieee.org/document/11354545/
+    evidence: 'Author v2 and current v3 (2025-11-21) SectionsII–IV, Eq17/21 read; current version checked via arXiv submission history; IEEE2026 record verified separately.'
+    full_text: author_manuscript
+    values:
+      - 'Weißer and Utschick, On the Asymptotic MSE-Optimality of Parametric Bayesian Channel Estimation in mmWave Systems; arXiv2504.16710v3'
+      - '2025 preprint;2026 publisher record'
+      - 'mmWave array channel'
+      - 'Parametric Bayesian estimation'
+      - 'Parameterized LMMSE'
+      - 'Angles and path powers'
+      - 'Continuous physical parameters'
+      - 'Noisy channel observations'
+      - 'No in PBCE construction'
+      - 'Observation model; FDM pilot protocol UNKNOWN'
+      - 'Not in Eq17'
+      - 'Path structure; correction-rank UNKNOWN'
+      - 'Parameter estimation/rMUSIC'
+      - 'No for PBCE'
+      - 'Physical model/path assumptions'
+      - 'Prior/coherence/SNR tests'
+      - 'Asymptotic MSE; operation count UNKNOWN'
+      - 'Low-dimensional observations parameterize LMMSE'
+      - 'Current coordinates combine frozen operators, not angles'
+      - 'MEDIUM/HIGH broad parameterization risk'
+  - id: F
+    source: https://pure.skku.edu/en/publications/two-tier-peft-adapter-switching-for-environment-and-snr-adaptive-/
+    additional_source: https://doi.org/10.1109/OJCOMS.2026.3697928
+    evidence: 'Official university abstract/metadata only. No primary full text obtained; every technical matrix field UNKNOWN despite abstract descriptions.'
+    full_text: unavailable
+    values:
+      - 'Lee and Choi, Two-Tier PEFT Adapter Switching for Environment- and SNR-Adaptive Channel Estimation; DOI10.1109/OJCOMS.2026.3697928'
+      - '2026'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'Topic overlaps compact environment/SNR adaptation; technical overlap UNKNOWN'
+      - 'UNKNOWN pending primary full text'
+      - 'MEDIUM/HIGH / UNRESOLVED'
+  - id: G1
+    source: https://arxiv.org/html/2403.17577
+    evidence: 'Author manuscript SectionsIII–IV, responsibilities and MAP/pilot-codebook equations read.'
+    full_text: author_manuscript
+    values:
+      - 'Turan et al., Channel-Adaptive Pilot Design for FDD-MIMO Systems Utilizing Gaussian Mixture Models; arXiv2403.17577'
+      - '2024'
+      - 'FDD-MIMO'
+      - 'Adaptive pilots and estimation'
+      - 'GMM-conditioned LMMSE'
+      - 'Pilot codebook/filter bank'
+      - 'MAP selection and responsibility mixing'
+      - 'Received observations, feedback index'
+      - 'No in online equations'
+      - 'Pilot-observation inference'
+      - 'No in responsibilities'
+      - 'Structured covariance; rank correction UNKNOWN'
+      - 'Analytic posterior responsibilities'
+      - 'GMM training, no neural model required'
+      - 'Environment channel corpus'
+      - 'Exact CDL compositional OOD UNKNOWN'
+      - 'Offline bank; no online pilot optimizer'
+      - 'Observation-dependent LMMSE bank'
+      - 'Current fixed pilots and unrestricted real CV composition'
+      - 'HIGH broad continuous-mixture risk'
+  - id: G2
+    source: https://arxiv.org/html/2504.17573
+    evidence: 'Author manuscript SectionsIII–IV and Algorithm1/conditional-Gaussian estimator equations read.'
+    full_text: author_manuscript
+    values:
+      - 'Weißer et al., Semi-Blind Strategies for MMSE Channel Estimation Utilizing Generative Priors; arXiv2504.17573'
+      - '2025'
+      - 'Multiuser spatial channel'
+      - 'Additional observation information'
+      - 'Projected LMMSE/GMM/VAE'
+      - 'Subspace and conditional prior'
+      - 'Observation-dependent estimation'
+      - 'Pilots and received payload symbols'
+      - 'No in deployment algorithm'
+      - 'No, payload used'
+      - 'No in algorithm'
+      - 'Received-signal subspace'
+      - 'Likelihood/subspace plus prior inference'
+      - 'VAE yes; GMM EM alternative'
+      - 'Clean-channel training corpus'
+      - 'Spatial/measurement scenarios; CDL OOD UNKNOWN'
+      - 'Subspace estimation adds processing'
+      - 'Data-dependent statistical filtering'
+      - 'Current sparse-pilot-only coordinates, fixed library'
+      - 'MEDIUM; wider information budget'
+  - id: G3
+    source: https://arxiv.org/html/2608.15945
+    evidence: 'Author manuscript training objective and SectionsIV–V read; fixed-filter stylized theory distinguished from sample-dependent network.'
+    full_text: author_manuscript
+    values:
+      - 'Ha, Kim and Park, Attention-Aided MMSE with Ridge Denoising: How to Train under Noisy Channel Samples; arXiv2608.15945'
+      - '2026'
+      - 'OFDM, COST2100'
+      - 'Noisy training targets'
+      - 'Ridge-A-MMSE'
+      - 'Learned filter training objective'
+      - 'Neural filter generation'
+      - 'Received pilots'
+      - 'No clean inference target'
+      - 'Pilot-input inference'
+      - 'UNKNOWN'
+      - 'Optional truncated training decomposition'
+      - 'Ridge-regularized offline learning'
+      - 'Yes'
+      - 'Noisy channel corpus'
+      - 'SU/HSR; compositional OOD UNKNOWN'
+      - 'Unchanged A-MMSE inference product'
+      - 'MMSE filters and noisy observations'
+      - 'Current no training or ridge; exact real CV'
+      - 'MEDIUM'
+  - id: G4
+    source: https://arxiv.org/html/2605.10213
+    evidence: 'Author manuscript SectionsIII–IV read, SIREN and pseudo-pilot decision feedback inspected.'
+    full_text: author_manuscript
+    values:
+      - 'Unsupervised Online Channel Estimation for High-Mobility OFDM via Implicit Neural Representation; arXiv2605.10213'
+      - '2026'
+      - 'High-mobility OFDM/V2X'
+      - 'Time-varying estimation/ICI'
+      - 'SIRIUS implicit representation'
+      - 'Continuous channel function'
+      - 'Per-slot neural optimization'
+      - 'True and selected pseudo-pilots'
+      - 'No supervised clean target'
+      - 'No, decision feedback included'
+      - 'UNKNOWN'
+      - 'UNKNOWN'
+      - 'Confidence-aware neural optimization'
+      - 'Online neural optimization'
+      - 'No supervised target in online objective'
+      - 'V2X scenarios'
+      - 'Iterative per-slot processing'
+      - 'Unlabelled online estimation'
+      - 'Current fixed operators and analytical two-variable fit'
+      - 'MEDIUM; different inference budget'
+  - id: G5
+    source: https://xubolee.github.io/files/papers/GLOBECOM25_LoRAT.pdf
+    additional_source: https://xubolee.github.io/publication/lorat-globecom
+    evidence: 'Author-hosted six-page manuscript SectionsII–IV read, including low-rank model adaptation and data-to-model mapping.'
+    full_text: author_manuscript
+    values:
+      - 'Wang, Li and Xiao, LoRAT: Low Rank Adaptation and Transfer for Multi-environment Channel Estimations; GLOBECOM'
+      - '2025'
+      - 'FDD uplink-to-downlink MIMO-OFDM'
+      - 'Multi-environment model transfer'
+      - 'Attention diffusion foundation model'
+      - 'Neural low-rank adapters'
+      - 'Distribution-to-model transfer'
+      - 'Uplink CSI and unlabelled distributions'
+      - 'No labelled unknown-environment data'
+      - 'UNKNOWN for received-pilot CV'
+      - 'Environment grouping; label-free API UNKNOWN'
+      - 'Attention Q/K/V weight updates'
+      - 'Gradient training and learned divergence mapping'
+      - 'Yes offline'
+      - 'Known-environment training, unknown unlabelled data'
+      - 'Known-to-unknown environment transfer'
+      - 'Reduced transferred/trained parameters'
+      - 'Frozen base plus compact environment corrections'
+      - 'Current linear operators and analytical sparse-pilot coordinates'
+      - 'HIGH broad base/library adaptation risk'
+  - id: H
+    source: https://www.diva-portal.org/smash/get/diva2:997763/FULLTEXT01.pdf
+    evidence: 'Original author technical report Sections3.2/3.3 and AppendixA; OCR imperfect, unread metadata UNKNOWN. Report is not asserted identical to later journal text.'
+    full_text: author_report
+    values:
+      - 'Edfors et al., OFDM channel estimation by singular value decomposition; author technical report'
+      - 'UNKNOWN from inspected report metadata'
+      - 'OFDM'
+      - 'LMMSE estimator complexity'
+      - 'SVD-reduced LMMSE'
+      - 'Estimator rank'
+      - 'Fixed rank/design'
+      - 'Pilot observations'
+      - 'No in filtering equation'
+      - 'Pilot-input filter'
+      - 'No in filtering equation'
+      - 'Full estimator'
+      - 'Analytical rank reduction'
+      - 'No'
+      - 'Design statistics'
+      - 'Correlation/SNR design sensitivity'
+      - 'Rank-dependent product counts'
+      - 'Established weighted rank reduction'
+      - 'Current correction-only factors and online composition'
+      - 'HIGH for generic compression novelty'

@@ -1,0 +1,197 @@
+{
+  "scope": "EXPERIMENTAL_NOT_FORMAL_BASELINE",
+  "cases": [
+    {
+      "id": "nine_K1_r4",
+      "K": 1,
+      "r": 4,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480000,
+      "initialization_seed": 42480001
+    },
+    {
+      "id": "nine_K1_r8",
+      "K": 1,
+      "r": 8,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480010,
+      "initialization_seed": 42480011
+    },
+    {
+      "id": "nine_K1_r16",
+      "K": 1,
+      "r": 16,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480020,
+      "initialization_seed": 42480021
+    },
+    {
+      "id": "nine_K2_r4",
+      "K": 2,
+      "r": 4,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480030,
+      "initialization_seed": 42480031
+    },
+    {
+      "id": "nine_K2_r8",
+      "K": 2,
+      "r": 8,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480040,
+      "initialization_seed": 42480041
+    },
+    {
+      "id": "nine_K2_r16",
+      "K": 2,
+      "r": 16,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480050,
+      "initialization_seed": 42480051
+    },
+    {
+      "id": "nine_K4_r4",
+      "K": 4,
+      "r": 4,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480060,
+      "initialization_seed": 42480061
+    },
+    {
+      "id": "nine_K4_r8",
+      "K": 4,
+      "r": 8,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480070,
+      "initialization_seed": 42480071
+    },
+    {
+      "id": "nine_K4_r16",
+      "K": 4,
+      "r": 16,
+      "D": 64,
+      "N": 256,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42480080,
+      "initialization_seed": 42480081
+    },
+    {
+      "id": "convergence_K1_r4",
+      "K": 1,
+      "r": 4,
+      "D": 64,
+      "N": 256,
+      "mode": "convergence",
+      "steps": 100,
+      "data_seed": 42481000,
+      "initialization_seed": 42481001,
+      "stop_sensitive_role": "representative"
+    },
+    {
+      "id": "convergence_K2_r8",
+      "K": 2,
+      "r": 8,
+      "D": 64,
+      "N": 256,
+      "mode": "convergence",
+      "steps": 100,
+      "data_seed": 42481010,
+      "initialization_seed": 42481011,
+      "stop_sensitive_role": "representative"
+    },
+    {
+      "id": "convergence_K4_r16",
+      "K": 4,
+      "r": 16,
+      "D": 64,
+      "N": 256,
+      "mode": "convergence",
+      "steps": 100,
+      "data_seed": 42481020,
+      "initialization_seed": 42481021,
+      "stop_sensitive_role": "representative"
+    },
+    {
+      "id": "convergence_K1_r16",
+      "K": 1,
+      "r": 16,
+      "D": 64,
+      "N": 128,
+      "mode": "convergence",
+      "steps": 100,
+      "data_seed": 42481030,
+      "initialization_seed": 42481031,
+      "stop_sensitive_role": "extra high-rank smaller-sample case + strict-threshold branch sentinel"
+    },
+    {
+      "id": "medium_K4_r16",
+      "K": 4,
+      "r": 16,
+      "D": 256,
+      "N": 1024,
+      "mode": "short",
+      "steps": 8,
+      "data_seed": 42482000,
+      "initialization_seed": 42482001
+    }
+  ],
+  "tolerance": {
+    "atol": 1e-10,
+    "rtol": 1e-09
+  },
+  "thread_comparisons": [
+    1,
+    4,
+    8,
+    12
+  ],
+  "resource_limits": {
+    "max_process_bytes": 6442450944,
+    "min_system_available_physical_bytes": 2147483648
+  },
+  "near_limit_stop": {
+    "RSS_bytes": 5905580032,
+    "available_bytes": 2415919104
+  },
+  "worker_timeout_seconds": 1200,
+  "measurements": {
+    "kinds": [
+      "loading",
+      "latent",
+      "quadratic",
+      "residual",
+      "small_EM",
+      "medium_EM"
+    ],
+    "blocks": 3,
+    "threads": 1
+  },
+  "formal_fit_authorized": false,
+  "scientific_score_authorized": false,
+  "policy": "original author max100 stopping for convergence, only four frozen R3 transforms"
+}

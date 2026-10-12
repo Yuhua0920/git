@@ -1,0 +1,380 @@
+{
+  "task": "SP-U12B2A",
+  "authority": "IMPLEMENTATION_VALIDATION_ONLY",
+  "formal_generation_authorized": false,
+  "snr_db": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "source_receive_power": 9.941134822523972,
+  "noise_variances": {
+    "0": 9.941134822523972,
+    "5": 3.1436628565989504,
+    "10": 0.9941134822523973,
+    "15": 0.31436628565989505,
+    "20": 0.09941134822523973,
+    "25": 0.0314366285659895,
+    "30": 0.009941134822523972
+  },
+  "noise_formula": "P_rx_ref * 10^(-snr_db/10); evaluated as the frozen P_rx_ref / 10^(snr_db/10)",
+  "conditions": {
+    "ID": "CDL-C-30-100",
+    "Profile": "CDL-B-30-100",
+    "Mobility": "CDL-C-120-100",
+    "Composed": "CDL-B-120-100",
+    "Boundary": "CDL-C-30-200"
+  },
+  "methods": [
+    "LS-LIN",
+    "Source",
+    "Hard",
+    "Convex",
+    "Dense",
+    "LR4",
+    "Matched"
+  ],
+  "perfect_CSI": "Secondary BER reference only; excluded from NMSE estimator inventory",
+  "preparation": {
+    "Source": "outputs/t15a_cdl_statistics_500.npz",
+    "P": "outputs/t15c_cdl_statistics_CDL-B-30.npz",
+    "M": "outputs/t15c_cdl_statistics_CDL-C-120.npz"
+  },
+  "preparation_trajectories_per_origin": 500,
+  "rank": 4,
+  "window_frames": 5,
+  "folds": 4,
+  "pilot_dimension": 64,
+  "data_dimension": 3968,
+  "fold_input": 48,
+  "fold_heldout": 16,
+  "sample_rate_hz": 1920000,
+  "nfft": 64,
+  "delta_f_hz": 30000,
+  "n_eval_per_condition": 1000,
+  "n_reference_per_condition": 500,
+  "frames_per_trajectory": 10,
+  "scored_frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "cross_snr_pairing": "Same clean H, same unit CN(0,I) noise and communication bits; only sigma scales. SNR points are dependent.",
+  "reference_pairing": "One independent clean reference corpus per condition shared across all7SNR",
+  "bootstrap": {
+    "resamples": 100000,
+    "family": 35,
+    "two_sided": true,
+    "confidence": 0.95,
+    "quantile_method": "linear",
+    "unit": "paired trajectory",
+    "chunk_resamples": 1000,
+    "condition_substreams": "SeedSequence([bootstrap_master_seed,condition_ordinal]); same indices across methods/SNR",
+    "store_index_tables": false
+  },
+  "primary_contrasts": [
+    {
+      "condition": "Profile",
+      "snr_db": 0,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Profile",
+      "snr_db": 5,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Profile",
+      "snr_db": 10,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Profile",
+      "snr_db": 15,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Profile",
+      "snr_db": 20,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Profile",
+      "snr_db": 25,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Profile",
+      "snr_db": 30,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Mobility",
+      "snr_db": 0,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Mobility",
+      "snr_db": 5,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Mobility",
+      "snr_db": 10,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Mobility",
+      "snr_db": 15,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Mobility",
+      "snr_db": 20,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Mobility",
+      "snr_db": 25,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Mobility",
+      "snr_db": 30,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 0,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 5,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 10,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 15,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 20,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 25,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 30,
+      "comparison": "source_gain",
+      "first": "Source",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 0,
+      "comparison": "convex_gain",
+      "first": "Convex",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 5,
+      "comparison": "convex_gain",
+      "first": "Convex",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 10,
+      "comparison": "convex_gain",
+      "first": "Convex",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 15,
+      "comparison": "convex_gain",
+      "first": "Convex",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 20,
+      "comparison": "convex_gain",
+      "first": "Convex",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 25,
+      "comparison": "convex_gain",
+      "first": "Convex",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 30,
+      "comparison": "convex_gain",
+      "first": "Convex",
+      "second": "LR4",
+      "positive_means": "LR4 better"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 0,
+      "comparison": "compression_penalty",
+      "first": "LR4",
+      "second": "Dense",
+      "positive_means": "compression worse"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 5,
+      "comparison": "compression_penalty",
+      "first": "LR4",
+      "second": "Dense",
+      "positive_means": "compression worse"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 10,
+      "comparison": "compression_penalty",
+      "first": "LR4",
+      "second": "Dense",
+      "positive_means": "compression worse"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 15,
+      "comparison": "compression_penalty",
+      "first": "LR4",
+      "second": "Dense",
+      "positive_means": "compression worse"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 20,
+      "comparison": "compression_penalty",
+      "first": "LR4",
+      "second": "Dense",
+      "positive_means": "compression worse"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 25,
+      "comparison": "compression_penalty",
+      "first": "LR4",
+      "second": "Dense",
+      "positive_means": "compression worse"
+    },
+    {
+      "condition": "Composed",
+      "snr_db": 30,
+      "comparison": "compression_penalty",
+      "first": "LR4",
+      "second": "Dense",
+      "positive_means": "compression worse"
+    }
+  ],
+  "roundoff_relative_tolerance": 1e-10,
+  "roundoff_source": "Existing SP-U4A fixed 1e-10 independent-complex128 effective-product gate; no threshold selected from outcomes",
+  "solve_relative_tolerance": 1e-11,
+  "bit_count_gate": "exact integer equality",
+  "smoke": {
+    "eval_per_condition": 3,
+    "ref_per_condition": 3,
+    "snr_db": [
+      0,
+      15,
+      30
+    ],
+    "purpose": "technical finite/schema/solve checks only"
+  },
+  "engineering_threads": 1,
+  "PAGE_BUDGET_DEBT": "+5 review pages relative to prior30-page build; deferred to B7/B8"
+}
